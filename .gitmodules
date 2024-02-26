@@ -3,4 +3,4 @@
 	url = https://github.com/ykasten/layered-neural-atlases.git
 [submodule "diffvg"]
 	path = diffvg
-	url = https://github.com/BachiLi/diffvg.git
+	url = https://github.com/eyaler/diffvg.git
