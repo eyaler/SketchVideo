@@ -1530,7 +1530,7 @@ class Painter(torch.nn.Module):
         thresh[-1] = torch.Tensor(sum_attn)
 
         # sample num_paths from the chosen pixels.
-        prob_sum = sum_attn[self.inds[:,0].astype(np.int), self.inds[:,1].astype(np.int)]
+        prob_sum = sum_attn[self.inds[:,0].astype(int), self.inds[:,1].astype(int)]
         prob_sum = prob_sum / prob_sum.sum()
         new_inds = []
         for i in range(self.num_stages):
