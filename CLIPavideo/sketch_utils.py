@@ -86,7 +86,7 @@ def save_atlas(atlas, model, frames_shape, points, colors, size, output_dir, dev
         for j, point in enumerate(points):
             pos = model(torch.cat((frames_shape[i][point].points[0]/(224/2)-1, torch.tensor(i/(len(frames_shape)/2)-1).unsqueeze(0).to(device))))
             # pos = model(torch.cat(frames_shape[i][j].points[0], i/len(frames_shape)))
-            pos = np.floor((pos.cpu().detach().numpy()+1)*(size/2)).astype(np.int)
+            pos = np.floor((pos.cpu().detach().numpy()+1)*(size/2)).astype(int)
             # print(pos[0])
             # print(pos[1])
             # print(atlas_b.shape)
