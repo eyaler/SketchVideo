@@ -79,7 +79,7 @@ parser.add_argument(
 # parser.add_argument(
 #     '--num_frames', type=int, default=50, help='number of frames accepted')
 parser.add_argument(
-    '--size', nargs='*', type=int, default=[1080,1080], help='number of frames accepted')
+    '--size', nargs='*', type=int, default=[0,0], help='number of frames accepted')
 
 
 args = parser.parse_args() 
@@ -135,6 +135,8 @@ for video_name in imgs_folder_names:
         filling = np.any(cropped == 0, axis=-1)
         cropped[filling] = [255,255,255]
 
+        size[0] = size[0] or mask.shape[1]
+        size[1] = size[1] or mask.shape[0]
         mask = cv2.resize(mask, (size[0], size[1]))[:,:,0]
         img = cv2.resize(img,  (size[0], size[1]))
         cropped = cv2.resize(cropped, (size[0], size[1]))
