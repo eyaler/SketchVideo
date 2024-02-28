@@ -150,7 +150,7 @@ def run(seed, wandb_name):
                      allow_pickle=True)[()]
     loss_eval = np.array(config['loss_eval'])
     inds = np.argsort(loss_eval)
-    # losses_all[wandb_name] = loss_eval[inds][0]
+    losses_all[wandb_name] = loss_eval[inds][0]
  
     
 def display_(seed, wandb_name):
