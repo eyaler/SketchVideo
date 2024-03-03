@@ -150,7 +150,9 @@ def run(seed, wandb_name):
                      allow_pickle=True)[()]
     loss_eval = np.array(config['loss_eval'])
     inds = np.argsort(loss_eval)
-    losses_all[wandb_name] = loss_eval[inds][0]
+    losses_all = 
+    if len(inds):
+      losses_all[wandb_name] = loss_eval[inds][0]
  
     
 def display_(seed, wandb_name):
@@ -200,6 +202,9 @@ if args.display:
 if multiprocess:
     P.close()
     P.join()  # start processes
-sorted_final = dict(sorted(losses_all.items(), key=lambda item: item[1]))
-copyfile(f"{output_dir}/{list(sorted_final.keys())[0]}/best_iter.svg",
-         f"{output_dir}/{list(sorted_final.keys())[0]}_best.svg")
+try:
+  sorted_final = dict(sorted(losses_all.items(), key=lambda item: item[1]))
+  copyfile(f"{output_dir}/{list(sorted_final.keys())[0]}/best_iter.svg",
+           f"{output_dir}/{list(sorted_final.keys())[0]}_best.svg")
+except Exception:
+  pass
