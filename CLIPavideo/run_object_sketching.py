@@ -209,3 +209,4 @@ try:
            f"{output_dir}/{list(sorted_final.keys())[0]}_best.svg")
 except Exception:
   pass
+print(output_dir)
