@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--target_file", type=str,
                     help="target image file, located in <target_images>")
 
-
+parser.add_argument("--batch_size", type=int, default=0)
 parser.add_argument("--focus", type=str,
                     help="background or foreground")
 parser.add_argument("--consist_param", type=float, default=1.5)
@@ -113,6 +113,7 @@ address_masks = str(args.data_folder+"/masks_crop/")
 
 def run(seed, wandb_name):
     exit_code = sp.run(["python", "painterly_rendering.py", target,
+                            "--batch_size", args.batch_size,
                             "--focus", str(args.focus),
                             "--frames_dir", address_frames,
                             "--masks_dir", address_masks,
