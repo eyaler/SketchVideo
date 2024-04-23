@@ -113,7 +113,7 @@ address_masks = str(args.data_folder+"/masks_crop/")
 
 def run(seed, wandb_name):
     exit_code = sp.run(["python", "painterly_rendering.py", target,
-                            "--batch_size", args.batch_size,
+                            "--batch_size", str(args.batch_size),
                             "--focus", str(args.focus),
                             "--frames_dir", address_frames,
                             "--masks_dir", address_masks,
