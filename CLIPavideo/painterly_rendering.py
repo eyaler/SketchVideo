@@ -410,10 +410,12 @@ def main(args):
 
             # losses_frames += Loss_add.loss_frame_wise()
             # losses_consist += Loss_add.loss_con_()
-        
-        if args.clip_model_name == "RN101":
+
+        if args.batch_size:
+            num = args.batch_size
+        elif args.clip_model_name == "RN101":
             num = 22
-        if args.clip_model_name == "ViT-B/32":
+        elif args.clip_model_name == "ViT-B/32":
             num = 49
 
         # losses_clips = []
